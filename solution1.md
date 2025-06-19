@@ -1,3 +1,6 @@
+# solution AT
+
+```JS
 import { useState } from 'react'
 import './App.css'
 import { data } from "./data.tsx"; 
@@ -18,32 +21,10 @@ function App() {
   console.log(...data)
   const [amount, setAmount] = useState(1000)
   const [balance, setBalance] = useState(17042.67)
-  const [error, setError] = useState('No error')
-
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const value = e.target.value
-    setAmount(Number(value))
-    if (value === '') {
-      setError('Amount cannot be empty')
-    } else if (Number(value) < 0.01) {
-      setError('Amount must be at least 0.01')
-    } else if (Number(value) > balance) {
-      setError('Amount cannot exceed the available balance')
-    } else {
-      setError('No error')
-    }
-  }
-
+  const [error, setError] = useState('')
   return (
     <>
-      <h2>
-        <a className='logo' href="https://github.com/attila5287/hackerrank-react-cryptorank-exchange" target="_blank" rel="noopener noreferrer">
-          <img className='logo' src="./react.svg" alt="CryptoRank Exchange" />
-          <span>CryptoRank Exchange</span>
-        </a>
-      </h2>
-      <input type="number" value={amount} placeholder="Enter USD amount" onChange={handleChange} />
-      <p style={{color: 'red', margin: '0'}}>{error}</p>
+      <input type="number" value={amount} placeholder="Enter USD amount" onChange={(e) => setAmount(e.target.value)} />
         <ul style={{listStyleType: 'none'}}>
           <li>Your balance is {formatCurrency(balance)}</li>
           <li>Purchase Dollar Amount: {formatCurrency(amount)}</li>
@@ -72,3 +53,7 @@ function App() {
 }
 
 export default App
+
+
+
+```

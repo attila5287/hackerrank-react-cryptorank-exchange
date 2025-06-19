@@ -1,21 +1,64 @@
-# React + TypeScript + Vite
+# CryptoRank Exchange
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+|--|--|
+|--|--|
+|see live version on vercel:|[link to deployed app](https://hackerrank-react-cryptorank-exchang.vercel.app/)|
+|solution1| [markdown file](./solution1.md  ) |
+|solution2| [markdown file](./solution2.md  ) |
+|solution3| [markdown file](./solution3.md  ) |
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
 
-## Deploy Your Own
+Develop a React application called "CryptoRank Exchange" to estimate the number of cryptocurrency coins a user can receive based on an entered amount of fiat currency. The application requirements are detailed below, and the finished application must pass all unit tests.
 
-Deploy your own Vite project with Vercel.
+![screenshot](./public/sample-app.gif)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/framework-boilerplates/vite-react&template=vite-react)
 
-_Live Example: https://vite-react-example.vercel.app_
+Detailed Requirements
 
-### Deploying From Your Terminal
 
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
+1. Fields and Display:
 
-```shell
-$ vercel
-```
+    Input Field: Allows entry of the amount to be exchanged.
+    Table: Displays "Exchange Rate" and "Number of Coins" for each cryptocurrency.
+
+
+
+| 2. User Interactions: |- |
+|--|--|
+|Users input an amount within their available balance.|-|
+|Amount is mandatory, ranging from $0.01 to the available balance.|*|
+|If invalid, show an error message.||
+|By default, the input field is empty with no error message and "Number of Coins" as 0.00000000.||
+|Table updates dynamically as the amount is modified.||
+
+
+|3. Conversion Calculation|--|
+|--|--|
+|"Number of Coins" = (Amount * Exchange Rate), rounded to 8 decimal places.|--|
+|Invalid amounts display "n/a" in the "Number of Coins" column.|--|
+
+|. Error Message|--|
+|--|--|
+|Empty input: "Amount cannot be empty". Amount <0.01 ".|==|
+|Amount > available balance: "Amount cannot exceed the available balance".|==|
+
+
+
+#Sample Interaction
+
+Initial State
+The input field is empty with no error messages.
+The "Number of Coins" column displays "0.00000000" for each cryptocurrency.
+
+User Action 1
+The user enters "100" into the input field.
+The table updates dynamically to display the number of coins based on the exchange rates for each cryptocurrency.
+
+User Action 2
+The user enters an amount greater than the available balance (e.g., "10000").
+An error message "Amount cannot exceed the available balance" is displayed.
+The "Number of Coins" column displays "n/a".
+
+User Action 3
+The user clears the input field.
+The error message "Amount cannot be empty" is displayed, and the "Number of Coins" column displays "0.00000000".
