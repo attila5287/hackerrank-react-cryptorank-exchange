@@ -17,7 +17,7 @@ function fixed(amount: number) {
 function App() {
   console.log(...data)
   const [amount, setAmount] = useState(1000)
-  const [balance, setBalance] = useState(17042.67)
+  const balance = 17042.67
   const [error, setError] = useState('No error')
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
